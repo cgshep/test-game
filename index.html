@@ -3,50 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shields of the North</title>
+  <title>South Shields: Tides of Adventure</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="game-layout">
-    <section class="hud" aria-label="Quest panel">
-      <h1>Shields of the North</h1>
-      <p class="subtitle">A Rune-style adventure through South Shields, Tyne and Wear</p>
+  <main class="layout">
+    <aside class="hud" aria-label="Game interface">
+      <h1>South Shields: Tides of Adventure</h1>
+      <p class="subtitle">A Rune-inspired 3D coastal RPG set in Tyne and Wear</p>
 
-      <div class="card">
-        <h2>Quest</h2>
-        <p id="questText">Collect driftwood, sea glass, and market herbs from around town.</p>
-      </div>
+      <section class="panel">
+        <h2>Active Quest</h2>
+        <p id="questText">Gather Driftwood, Sea Glass, and Market Spices.</p>
+      </section>
 
-      <div class="card stats">
+      <section class="panel">
         <h2>Skills</h2>
-        <ul>
-          <li>Fishing: <span id="fishing">1</span></li>
-          <li>Crafting: <span id="crafting">1</span></li>
-          <li>Foraging: <span id="foraging">1</span></li>
-          <li>Renown: <span id="renown">0</span></li>
+        <ul class="stats">
+          <li>Fishing <span id="fishing">1</span></li>
+          <li>Crafting <span id="crafting">1</span></li>
+          <li>Foraging <span id="foraging">1</span></li>
+          <li>Renown <span id="renown">0</span></li>
         </ul>
-      </div>
+      </section>
 
-      <div class="card inventory">
+      <section class="panel">
         <h2>Inventory</h2>
-        <ul id="inventoryList">
+        <ul id="inventory" class="inventory">
           <li>Empty satchel</li>
         </ul>
-      </div>
+      </section>
 
-      <div class="card controls">
+      <section class="panel small">
         <h2>Controls</h2>
-        <p>Move: Arrow keys or WASD</p>
+        <p>Move: <kbd>WASD</kbd> / <kbd>Arrow Keys</kbd></p>
         <p>Gather: <kbd>Space</kbd></p>
-      </div>
-    </section>
+      </section>
+    </aside>
 
-    <section class="world-wrap" aria-label="Game world">
-      <canvas id="world" width="960" height="600"></canvas>
-      <p class="hint">Explore Sandhaven Beach, The Leas, and South Shields Market.</p>
+    <section class="viewport-wrap" aria-label="3D game viewport">
+      <div id="viewport"></div>
+      <p class="hint">Explore Sandhaven, The Leas, Herd Groyne, and South Shields Market.</p>
     </section>
   </main>
 
-  <script src="game.js"></script>
+  <script type="module" src="game.js"></script>
 </body>
 </html>
