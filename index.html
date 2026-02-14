@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shields of the North</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-layout">
+    <section class="hud" aria-label="Quest panel">
+      <h1>Shields of the North</h1>
+      <p class="subtitle">A Rune-style adventure through South Shields, Tyne and Wear</p>
+
+      <div class="card">
+        <h2>Quest</h2>
+        <p id="questText">Collect driftwood, sea glass, and market herbs from around town.</p>
+      </div>
+
+      <div class="card stats">
+        <h2>Skills</h2>
+        <ul>
+          <li>Fishing: <span id="fishing">1</span></li>
+          <li>Crafting: <span id="crafting">1</span></li>
+          <li>Foraging: <span id="foraging">1</span></li>
+          <li>Renown: <span id="renown">0</span></li>
+        </ul>
+      </div>
+
+      <div class="card inventory">
+        <h2>Inventory</h2>
+        <ul id="inventoryList">
+          <li>Empty satchel</li>
+        </ul>
+      </div>
+
+      <div class="card controls">
+        <h2>Controls</h2>
+        <p>Move: Arrow keys or WASD</p>
+        <p>Gather: <kbd>Space</kbd></p>
+      </div>
+    </section>
+
+    <section class="world-wrap" aria-label="Game world">
+      <canvas id="world" width="960" height="600"></canvas>
+      <p class="hint">Explore Sandhaven Beach, The Leas, and South Shields Market.</p>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

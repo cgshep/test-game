@@ -1,0 +1,104 @@
+:root {
+  --bg: #0f1f2f;
+  --panel: rgba(14, 28, 42, 0.9);
+  --panel-border: #4ea0d4;
+  --gold: #e9cf8a;
+  --text: #eef7ff;
+  --muted: #b5cbdd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #1d3e5c 0%, #08131d 55%, #04080d 100%);
+  min-height: 100vh;
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.hud {
+  background: var(--panel);
+  border: 2px solid var(--panel-border);
+  border-radius: 14px;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--gold);
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.card {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border: 1px solid rgba(120, 188, 230, 0.55);
+  border-radius: 10px;
+  background: rgba(3, 14, 23, 0.6);
+}
+
+.card h2 {
+  margin: 0 0 0.5rem;
+  color: #8bd4ff;
+  font-size: 1.1rem;
+}
+
+.stats ul,
+.inventory ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+kbd {
+  background: #102535;
+  border: 1px solid #6bbbe6;
+  border-radius: 5px;
+  padding: 0.1rem 0.35rem;
+}
+
+.world-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+canvas {
+  width: 100%;
+  max-width: 1040px;
+  border: 3px solid #4ea0d4;
+  border-radius: 14px;
+  background: linear-gradient(to bottom, #90d8ff 0 34%, #5aa569 34% 100%);
+  box-shadow: 0 15px 34px rgba(0, 0, 0, 0.5);
+}
+
+.hint {
+  margin-top: 0.65rem;
+  color: var(--muted);
+}
+
+@media (max-width: 1020px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+  }
+}
