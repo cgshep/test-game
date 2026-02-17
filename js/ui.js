@@ -321,16 +321,10 @@ class UI {
     this.dialogueBox.classList.add('active');
   }
 
-  // ---- Floating damage numbers ----
+  // ---- Floating damage numbers (delegated to 3D renderer sprites) ----
   showDamage(x, y, dmg, isPlayer = false) {
-    const el = document.createElement('div');
-    el.className = 'damage-float';
-    el.style.color = isPlayer ? '#ff8080' : '#ffff40';
-    el.textContent = dmg;
-    el.style.left = x + 'px';
-    el.style.top  = y + 'px';
-    document.getElementById('canvas-wrap').appendChild(el);
-    setTimeout(() => el.remove(), 1000);
+    // Damage numbers are now 3D sprites created in Renderer3D.showDamage()
+    // This stub kept for compatibility.
   }
 
   // ---- Level-up flash ----

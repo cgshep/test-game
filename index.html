@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shields of the Tyne - A RuneScape-style ISO Adventure</title>
+  <title>Shields of the Tyne — 3D</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div id="loading-screen">
     <div class="loading-content">
       <h1>Shields of the Tyne</h1>
-      <p>A tale of the North East Coast</p>
+      <p>A 3D Tale of the North East Coast</p>
       <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
-      <p id="loading-text">Loading world...</p>
+      <p id="loading-text">Loading Three.js world...</p>
     </div>
   </div>
 
@@ -37,15 +37,13 @@
       </div>
 
       <div class="panel-header" style="margin-top:10px">Skills</div>
-      <div class="skills-grid" id="skills-grid">
-        <!-- populated by JS -->
-      </div>
+      <div class="skills-grid" id="skills-grid"></div>
 
       <div class="panel-header" style="margin-top:10px">Equipment</div>
       <div id="equipment-slots">
-        <div class="equip-row"><span>Weapon:</span> <span id="eq-weapon">Bare Fists</span></div>
-        <div class="equip-row"><span>Armour:</span> <span id="eq-armour">Nowt</span></div>
-        <div class="equip-row"><span>Tool:</span>   <span id="eq-tool">None</span></div>
+        <div class="equip-row"><span>Weapon:</span><span id="eq-weapon">Bare Fists</span></div>
+        <div class="equip-row"><span>Armour:</span><span id="eq-armour">Nowt</span></div>
+        <div class="equip-row"><span>Tool:</span>  <span id="eq-tool">None</span></div>
       </div>
 
       <div class="panel-header" style="margin-top:10px">Location</div>
@@ -53,16 +51,15 @@
       <div id="coords-info" class="coords-text">0, 0</div>
     </div>
 
-    <!-- Centre: Canvas -->
+    <!-- Centre: 3D viewport -->
     <div id="canvas-wrap">
-      <canvas id="game-canvas"></canvas>
-      <div id="context-menu" class="hidden">
-        <!-- populated on right-click -->
-      </div>
+      <!-- Three.js renderer appends its canvas here -->
+      <div id="context-menu" class="hidden"></div>
       <div id="minimap-wrap">
         <canvas id="minimap-canvas" width="120" height="120"></canvas>
         <div class="minimap-label">Map</div>
       </div>
+      <div id="camera-hint">🖱 Drag to orbit · Scroll to zoom</div>
     </div>
 
     <!-- Right Panel: Chat + Inventory -->
@@ -71,27 +68,35 @@
       <div id="chat-log"></div>
 
       <div class="panel-header" style="margin-top:6px">Inventory</div>
-      <div id="inventory-grid">
-        <!-- 28 slots -->
-      </div>
+      <div id="inventory-grid"></div>
 
       <div class="panel-header" style="margin-top:6px">Controls</div>
       <div class="controls-help">
         <div>WASD / Arrows — Move</div>
-        <div>Click tile — Walk to</div>
-        <div>Click NPC/object — Interact</div>
-        <div>E — Examine tile</div>
-        <div>I — Toggle inventory</div>
+        <div>Left-click — Walk / Interact</div>
+        <div>Right-click — Context menu</div>
+        <div>Mouse drag — Orbit camera</div>
+        <div>Scroll — Zoom</div>
+        <div>E — Examine · I — Inventory</div>
       </div>
     </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Three.js r160 -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <!-- Game data -->
   <script src="data/tiles.js"></script>
   <script src="data/items.js"></script>
   <script src="data/npcs.js"></script>
   <script src="data/map.js"></script>
-  <script src="js/renderer.js"></script>
+
+  <!-- 3D engine -->
+  <script src="js/terrain3d.js"></script>
+  <script src="js/character3d.js"></script>
+  <script src="js/renderer3d.js"></script>
+
+  <!-- Game logic -->
   <script src="js/world.js"></script>
   <script src="js/player.js"></script>
   <script src="js/npc.js"></script>
