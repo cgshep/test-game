@@ -1,0 +1,352 @@
+/* ===============================================
+   Shields of the Tyne - Stylesheet
+   RuneScape-inspired UI, dark stone theme
+   =============================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1008;
+  color: #c8b87a;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* ---- Loading Screen ---- */
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #0d0a04;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.loading-content {
+  text-align: center;
+  max-width: 400px;
+}
+.loading-content h1 {
+  font-size: 32px;
+  color: #f0d060;
+  text-shadow: 0 0 20px #f0901080;
+  margin-bottom: 8px;
+  letter-spacing: 3px;
+}
+.loading-content p {
+  color: #a08040;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.loading-bar {
+  background: #2a1a08;
+  border: 2px solid #6a4820;
+  height: 24px;
+  width: 300px;
+  margin: 0 auto 12px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.loading-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #8a4010, #f0a030);
+  transition: width 0.3s ease;
+}
+
+/* ---- Game Layout ---- */
+#game-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #1a1008;
+}
+
+/* ---- Left Stats Panel ---- */
+#stats-panel {
+  width: 180px;
+  min-width: 180px;
+  background: linear-gradient(180deg, #251508 0%, #1a0e04 100%);
+  border-right: 3px solid #5a3810;
+  padding: 8px 6px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.panel-header {
+  color: #f0d060;
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #5a3810;
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+}
+
+#player-name {
+  color: #f0f0c0;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: center;
+  text-shadow: 0 0 8px #f0d06080;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.stat-label {
+  width: 24px;
+  color: #a08040;
+  font-size: 10px;
+}
+.stat-bar-wrap {
+  flex: 1;
+  background: #2a1a08;
+  border: 1px solid #4a2808;
+  height: 10px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.stat-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.hp-bar  { background: linear-gradient(90deg, #800000, #cc3030); }
+.xp-bar  { background: linear-gradient(90deg, #005080, #3090d0); }
+.stat-val { color: #c8b87a; font-size: 10px; min-width: 36px; text-align: right; }
+
+/* ---- Skills Grid ---- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.skill-item {
+  background: #2a1808;
+  border: 1px solid #4a2808;
+  border-radius: 2px;
+  padding: 3px 4px;
+  cursor: default;
+}
+.skill-item:hover { border-color: #c8901050; background: #3a2010; }
+.skill-name { color: #a08840; font-size: 9px; }
+.skill-level { color: #f0d060; font-size: 11px; font-weight: bold; }
+.skill-xp { color: #706040; font-size: 8px; }
+
+/* ---- Equipment ---- */
+#equipment-slots { padding: 2px 0; }
+.equip-row { display: flex; justify-content: space-between; padding: 2px 0; color: #906830; font-size: 10px; }
+.equip-row span:last-child { color: #c8b87a; }
+
+/* ---- Location ---- */
+.location-text { color: #90c890; font-size: 11px; font-weight: bold; }
+.coords-text   { color: #607050; font-size: 10px; }
+
+/* ---- Canvas Wrap ---- */
+#canvas-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #0a0804;
+}
+#game-canvas {
+  display: block;
+  cursor: default;
+}
+
+/* ---- Context Menu ---- */
+#context-menu {
+  position: absolute;
+  background: #1a1008ee;
+  border: 2px solid #6a4820;
+  border-radius: 3px;
+  padding: 4px 0;
+  z-index: 50;
+  min-width: 140px;
+  box-shadow: 0 4px 12px #00000090;
+}
+#context-menu.hidden { display: none; }
+.ctx-option {
+  padding: 5px 12px;
+  cursor: pointer;
+  color: #c8b87a;
+  font-size: 12px;
+}
+.ctx-option:hover { background: #3a2010; color: #f0d060; }
+.ctx-cancel { color: #804020 !important; }
+
+/* ---- Minimap ---- */
+#minimap-wrap {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border: 2px solid #5a3810;
+  background: #0a0804;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px #00000080;
+}
+#minimap-canvas { display: block; border-radius: 50%; }
+.minimap-label {
+  text-align: center;
+  font-size: 9px;
+  color: #806040;
+  position: absolute;
+  bottom: 2px;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* ---- Right Panel ---- */
+#right-panel {
+  width: 200px;
+  min-width: 200px;
+  background: linear-gradient(180deg, #251508 0%, #1a0e04 100%);
+  border-left: 3px solid #5a3810;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* ---- Chat Log ---- */
+#chat-log {
+  height: 200px;
+  overflow-y: auto;
+  background: #0d0904;
+  border: 1px solid #3a2208;
+  padding: 4px;
+  margin-bottom: 4px;
+  font-size: 11px;
+  line-height: 1.5;
+  scrollbar-width: thin;
+  scrollbar-color: #4a2808 transparent;
+}
+#chat-log::-webkit-scrollbar { width: 6px; }
+#chat-log::-webkit-scrollbar-thumb { background: #4a2808; border-radius: 3px; }
+
+.chat-line { padding: 1px 0; }
+.chat-game    { color: #c8b87a; }
+.chat-npc     { color: #90e090; }
+.chat-combat  { color: #e05050; }
+.chat-loot    { color: #d0b030; }
+.chat-skill   { color: #5090d0; }
+.chat-system  { color: #806040; font-style: italic; }
+.chat-info    { color: #8090a0; }
+
+/* ---- Inventory Grid ---- */
+#inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  padding: 3px 0;
+}
+.inv-slot {
+  width: 40px;
+  height: 40px;
+  background: #2a1808;
+  border: 1px solid #4a2808;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  line-height: 1;
+}
+.inv-slot:hover { border-color: #c89030; background: #3a2010; }
+.inv-slot.filled { border-color: #6a4020; }
+.inv-slot .item-qty {
+  position: absolute;
+  bottom: 1px;
+  right: 3px;
+  font-size: 9px;
+  color: #f0f0a0;
+  font-weight: bold;
+}
+.inv-slot .item-icon { font-size: 20px; }
+.inv-slot[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1008ee;
+  border: 1px solid #5a3810;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+  font-size: 10px;
+  color: #f0d060;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ---- Controls Help ---- */
+.controls-help {
+  font-size: 10px;
+  color: #706040;
+  line-height: 1.8;
+}
+
+/* ---- Damage Numbers ---- */
+.damage-float {
+  position: absolute;
+  pointer-events: none;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff4040;
+  text-shadow: 1px 1px 2px #000;
+  animation: floatUp 1s ease-out forwards;
+  z-index: 40;
+}
+@keyframes floatUp {
+  0%   { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+
+/* ---- Dialogue Box ---- */
+#dialogue-box {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1a1008ee;
+  border: 2px solid #8a6030;
+  border-radius: 4px;
+  width: 420px;
+  max-width: 90%;
+  padding: 10px 14px;
+  z-index: 60;
+  display: none;
+}
+#dialogue-box.active { display: block; }
+.dialogue-speaker { color: #f0d060; font-weight: bold; font-size: 13px; margin-bottom: 4px; }
+.dialogue-text { color: #c8b87a; line-height: 1.6; font-size: 12px; }
+.dialogue-options { margin-top: 8px; }
+.dialogue-opt {
+  padding: 4px 8px;
+  color: #90c890;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  font-size: 11px;
+}
+.dialogue-opt:hover { border-left-color: #90c890; background: #2a1808; }
+.dialogue-close { float: right; cursor: pointer; color: #804020; font-size: 16px; line-height: 1; }
+
+/* ---- Scrollbar global ---- */
+* { scrollbar-width: thin; scrollbar-color: #4a2808 transparent; }

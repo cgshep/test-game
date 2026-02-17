@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shields of the Tyne - A RuneScape-style ISO Adventure</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-content">
+      <h1>Shields of the Tyne</h1>
+      <p>A tale of the North East Coast</p>
+      <div class="loading-bar"><div class="loading-fill" id="loading-fill"></div></div>
+      <p id="loading-text">Loading world...</p>
+    </div>
+  </div>
+
+  <div id="game-container" style="display:none">
+    <!-- Left Panel: Stats -->
+    <div id="stats-panel">
+      <div class="panel-header">Character</div>
+      <div id="player-name" class="stat-name">Geordie</div>
+      <div class="stat-row">
+        <span class="stat-label">HP</span>
+        <div class="stat-bar-wrap">
+          <div class="stat-bar hp-bar" id="hp-bar"></div>
+        </div>
+        <span class="stat-val" id="hp-val">10/10</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">XP</span>
+        <div class="stat-bar-wrap">
+          <div class="stat-bar xp-bar" id="xp-bar"></div>
+        </div>
+        <span class="stat-val" id="xp-val">0</span>
+      </div>
+
+      <div class="panel-header" style="margin-top:10px">Skills</div>
+      <div class="skills-grid" id="skills-grid">
+        <!-- populated by JS -->
+      </div>
+
+      <div class="panel-header" style="margin-top:10px">Equipment</div>
+      <div id="equipment-slots">
+        <div class="equip-row"><span>Weapon:</span> <span id="eq-weapon">Bare Fists</span></div>
+        <div class="equip-row"><span>Armour:</span> <span id="eq-armour">Nowt</span></div>
+        <div class="equip-row"><span>Tool:</span>   <span id="eq-tool">None</span></div>
+      </div>
+
+      <div class="panel-header" style="margin-top:10px">Location</div>
+      <div id="location-info" class="location-text">The Beach</div>
+      <div id="coords-info" class="coords-text">0, 0</div>
+    </div>
+
+    <!-- Centre: Canvas -->
+    <div id="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+      <div id="context-menu" class="hidden">
+        <!-- populated on right-click -->
+      </div>
+      <div id="minimap-wrap">
+        <canvas id="minimap-canvas" width="120" height="120"></canvas>
+        <div class="minimap-label">Map</div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Chat + Inventory -->
+    <div id="right-panel">
+      <div class="panel-header">Chat Log</div>
+      <div id="chat-log"></div>
+
+      <div class="panel-header" style="margin-top:6px">Inventory</div>
+      <div id="inventory-grid">
+        <!-- 28 slots -->
+      </div>
+
+      <div class="panel-header" style="margin-top:6px">Controls</div>
+      <div class="controls-help">
+        <div>WASD / Arrows — Move</div>
+        <div>Click tile — Walk to</div>
+        <div>Click NPC/object — Interact</div>
+        <div>E — Examine tile</div>
+        <div>I — Toggle inventory</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/tiles.js"></script>
+  <script src="data/items.js"></script>
+  <script src="data/npcs.js"></script>
+  <script src="data/map.js"></script>
+  <script src="js/renderer.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/npc.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
